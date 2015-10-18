@@ -1,3 +1,7 @@
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <time.h>
 #include <iostream>
 #include <windows.h>
 
@@ -44,4 +48,34 @@ int sredniasumyliczb(int a, int b){
 		n++;
 	}
 	return  suma/n;
+}
+
+/*
+ * Silnia
+ */
+ 
+ int silniarekurencyjna(int n){
+ 	int silnia=1;
+ 	for (int i=n;i>1;i--){
+ 		silnia*=i;
+	}
+	return silnia;
+ }
+ 
+ /*
+  * Funkcje do obliczania zarobku
+  */
+
+int stawka_zarobku(int zarobek){
+	if (zarobek<=20000){
+		return 19;
+	} else if (zarobek>20000 && zarobek<=30000) {
+		return 21;
+	} else {
+		return 28;
+	}
+}
+
+float zarobki_po_podatku(int podatek, int zarobek){
+	return zarobek-zarobek*podatek;
 }
