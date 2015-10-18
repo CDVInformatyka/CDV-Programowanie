@@ -6,7 +6,13 @@
 
 using namespace std;
 
+void czyszczenieCin(){
+	cin.sync();
+	cin.clear();
+}
+
 void menu(){
+	system("cls");
 	int wybor_menu;
 	//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_RED);
 	cout<<"Wybierz opcjê w Menu"<<endl;
@@ -15,16 +21,10 @@ void menu(){
 	cin>>wybor_menu;
 	if (cin.fail()){
 		czyszczenieCin();
-		cout<<"B³¹d! Podaj ponownie dane!"<<endl;	
-		cout.flush();
-		getch();
+		cout<<"B³¹d! Podaj ponownie dane!"<<endl;
+		system("pause");
 		menu();
 	}
-}
-
-void czyszczenieCin(){
-	cin.sync();
-	cin.clear();
 }
 
 void padaczka(){
