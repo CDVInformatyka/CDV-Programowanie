@@ -93,7 +93,7 @@ void zadanie6() {
 	system("pause");system("cls");
 }
 
-void zadanie7() {
+void zadanie7a() {
 	cout<<"Podaj liczbe:";
 	int x1=walidacja();
 	cout<<"Podaj 2 liczbe:";
@@ -103,19 +103,28 @@ void zadanie7() {
 	system("pause");
 }
 
+void zadanie7b() {
+	cout<<"Podaj iloœæ liczb z ci¹gu Fibonacci'ego";
+	int x=walidacja();
+	unsigned long long x1 = 0, x2 = 1;
+	for(int i=0;i<x;i++){cout<<x2<<" ";x2 += x1;x1 = x2-x1;}
+	system("pause");
+}
+
 void menu() {
 	int wybor;
 	cout << "Podaj numer zadania: ";
 	if (cin >> wybor) {
 		system("cls");
 		switch (wybor) {
-		case 1:	cout<<"Sprawdza liczbê dodatnia lub ujemna lub zero"<<endl;	zadanie1();	break;
-		case 2:	cout<<"Uk³ada w porz¹dku rosnacym"<<endl;					zadanie2();	break;
-		case 3:	cout<<"Wyœwietlamy slownie liczbe"<<endl;					zadanie3();	break;
-		case 4:	cout<<"Czy liczba jest parzysta, czy nie parzysta"<<endl;	zadanie4();	break;
-		case 5:	cout<<"Obliczanie potegi n-tej"<<endl;						zadanie5();	break;
-		case 6:	cout<<"Wypisanie liczb od 10 do podanej od usera"<<endl;	zadanie6();	break;
-		case 7:	cout<<"Algorytm Euklidesa"<<endl;							zadanie7();	break;
+		case 1:	cout<<"Sprawdza liczbê dodatnia lub ujemna lub zero"<<endl;	zadanie1();		break;
+		case 2:	cout<<"Uk³ada w porz¹dku rosnacym"<<endl;					zadanie2();		break;
+		case 3:	cout<<"Wyœwietlamy slownie liczbe"<<endl;					zadanie3();		break;
+		case 4:	cout<<"Czy liczba jest parzysta, czy nie parzysta"<<endl;	zadanie4();		break;
+		case 5:	cout<<"Obliczanie potegi n-tej"<<endl;						zadanie5();		break;
+		case 6:	cout<<"Wypisanie liczb od 10 do podanej od usera"<<endl;	zadanie6();		break;
+		case 7:	cout<<"Algorytm Euklidesa"<<endl;							zadanie7a();	break;
+		case 8:	cout<<"Ciag Fibonaciego"<<endl;								zadanie7b();	break;
 		default: menu();
 		}
 	}
