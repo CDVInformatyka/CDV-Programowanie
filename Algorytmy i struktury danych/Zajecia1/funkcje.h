@@ -53,15 +53,15 @@ int sredniasumyliczb(int a, int b){
 /*
  * Silnia
  */
- 
+
  int silniarekurencyjna(int n){
- 	int silnia=1;
+ 	unsigned int silnia=1;
  	for (int i=n;i>1;i--){
  		silnia*=i;
 	}
 	return silnia;
  }
- 
+
  /*
   * Funkcje do obliczania zarobku
   */

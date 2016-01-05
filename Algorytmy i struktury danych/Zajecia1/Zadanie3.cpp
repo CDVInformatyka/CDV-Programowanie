@@ -10,7 +10,7 @@ int main() {
 	while (typ==false){
 		system("cls");
 		cout << "Podaj wartoœæ liczby a: ";
-		cin >> b;
+		cin >> a;
 		cout << "Podaj wartoœæ liczby b: ";
 		cin >> b;
 		if (!cin){
@@ -21,7 +21,7 @@ int main() {
 		}
 	}
 	cout<<"Suma="<<a+b<<endl;
-	cout<<"Suma kwadratu="<<a*a+b*b<<endl;
+	cout<<"Suma kwadratu="<<a*a+2*(a*b)+b*b<<endl;
 	cout<<"Œrednia="<<sredniasumyliczb(a,b)<<endl;
 	system("pause");
 	return 0;

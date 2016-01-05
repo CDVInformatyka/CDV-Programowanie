@@ -5,7 +5,7 @@ int main() {
 	cout << "Jeden algorytm, obliczanie sumy,sumy kwadratow i srednia arytmetyczna\n\n";
 	system("pause");
 	system("cls");
-	int n,silnia;
+	unsigned int n,silnia;
 	bool bezpiecznik=false;
 	while (bezpiecznik==false){
 		cout<<"Podaj liczbê: ";
@@ -14,7 +14,7 @@ int main() {
 			cin.clear();
 			cin.sync();
 		} else {
-			typ=true;
+			bezpiecznik=true;
 		}
 	}
 	cout<<n<<"!="<<silniarekurencyjna(n)<<endl;
