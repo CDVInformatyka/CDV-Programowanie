@@ -2,23 +2,12 @@
  *  Podstawowe biblioteki
  */
 
-#if defined(__WIN32__) || defined(_WIN32) || defined(WIN32) || defined(__WINDOWS__) || defined(__TOS_WIN__)
 #include <windows.h>
-inline void delay(unsigned long ms)
-{
-	Sleep(ms);
-}
-#else
-#include <unistd.h>
-inline void delay(unsigned long ms)
-{
-	usleep(ms * 1000);
-}
-#endif
-
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <string>
+#include <conio.h>
 
 using namespace std;
 
@@ -26,9 +15,14 @@ using namespace std;
  *  Podstawowe funkcje
  */
 
+inline void delay(unsigned long ms)
+{
+	Sleep(ms);
+}
+
 void pause(string text = "") {
 	if (text == "") {
-		cout << "Naci�nij dowolny klawisz, by kontynuowa�...";
+		cout << "Naciœnij dowolny klawisz, by kontynuowaæ...";
 	}
 	else {
 		cout << text;
@@ -73,33 +67,53 @@ void menu(int i=0) {
 	{
 		lotto();
 	}
-	cout << "Wybierz opcj�:" << endl;
+	cout << "Wybierz opcjê:" << endl;
 	cout << "1. Opis gry" << endl;
-	cout << "2. Rozpocznij gr�" << endl;
+	cout << "2. Rozpocznij grê" << endl;
 	int opcja;
 	opcja = walidacja();
 	switch (opcja) {
 	case 1: opis(); break;
 	case 2: break;
-	default: cout << "Nast�pi�o zwolnienie blokady!" << endl; menu();
+	default: cout << "Nast¹pi³o zwolnienie blokady!" << endl; menu();
 	}
 }
 
 /*
- *
+ *  Gra
  */
 
 void opis() {
 	cls();
-	cout << "Program na początku pyta użytkownika o 6 liczb z zakresu od 1 do 49" << endl;
-	cout << "Następnie program wygeneruje 6 kolejny liczb i wyświetli wynik." << endl;
-	cout << "Oba typowania zostaną wyświetlone i porównane ze sobą." << endl;
-	cout << "W przypadku udanego typowania, można otrzymać nagrodę!" << endl;
-	cout << "Trójka - nagroda 2 złote" << endl;
-	cout << "Czwórka - 10 złotych" << endl;
-	cout << "Piątka - 100 złotych" << endl;
-	cout << "Szóstka - 100000 złotych" << endl;
+	cout << "Program na poczÄ…tku pyta uÅ¼ytkownika o 6 liczb z zakresu od 1 do 49" << endl;
+	cout << "NastÄ™pnie program wygeneruje 6 kolejny liczb i wyÅ›wietli wynik." << endl;
+	cout << "Oba typowania zostanÄ… wyÅ›wietlone i porÃ³wnane ze sobÄ…." << endl;
+	cout << "W przypadku udanego typowania, moÅ¼na otrzymaÄ‡ nagrodÄ™!" << endl;
+	cout << "TrÃ³jka - nagroda 2 zÅ‚ote" << endl;
+	cout << "CzwÃ³rka - 10 zÅ‚otych" << endl;
+	cout << "PiÄ…tka - 100 zÅ‚otych" << endl;
+	cout << "SzÃ³stka - 100000 zÅ‚otych" << endl;
 	pause();
 	cls();
 	menu(1);
+}
+
+bool kontynuacja(){
+    cout<<"Czy chcesz kontynuować grę?"<<endl;
+    cout<<"Naciśnij ENTER, aby kontynuować lub ESC, aby zakończyć grę!"<<endl;
+    bool powtorka=TRUE;
+    unsigned char znak;
+    int kod;
+    while (powtorka){
+        znak = getch();
+        kod = static_cast < int >( znak );
+        if( kod == 13 ){
+            powtorka=FALSE;
+            return FALSE;
+        }
+        if( kod == 27 ){
+            powtorka=FALSE;
+            return TRUE;
+        }
+    }
 }
